@@ -1,0 +1,783 @@
+/* Resetting default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #000; /* Set body background to black */
+}
+
+/* Header styling */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: rgba(0, 0, 0, 0.8); /* Set background to black with transparency */
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.logo img {
+    height: 100px;
+    margin-left: 40px;
+}
+.typed-cursor {
+    font-weight: bold;
+    color: orange; /* Couleur du curseur */
+    font-size: 1.5em; /* Taille du curseur */
+    animation: blink 0.7s infinite; /* Animation clignotante */
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+}
+.nav-links a {
+    position: relative;
+    text-decoration: none;
+    color: white; /* Couleur de base du lien */
+    font-size: 16px;
+    transition: color 0.3s ease; /* Transition pour la couleur */
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: rgba(255, 102, 0, 0.7); /* Ligne orange */
+    left: 0;
+    bottom: -5px;
+    transition: width 0.3s ease; /* Transition pour l'animation de la ligne */
+}
+
+.nav-links a:hover {
+    color: rgba(255, 102, 0, 0.7); /* Changer la couleur du texte au survol */
+}
+
+.nav-links a:hover::after {
+    width: 100%; /* La ligne s'étend sous le lien au survol */
+}
+
+.menu-icon {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.menu-icon .bar {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+
+    .menu-icon {
+        display: flex;
+    }
+    .nav-links.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        background-color: rgba(255, 255, 255, 0.9);
+        padding: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        gap: 10px;
+    }
+}
+
+/* Profile Section */
+.profile-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding-top: 100px; /* Ensure the header doesn't overlap */
+    background-color: #000;
+    color: white;
+}
+
+
+.profile {
+    display: flex;
+    align-items: center;
+    max-width: 4000px;
+    margin: auto;
+    margin-top: 50px;
+}
+
+.profile-pic {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    margin-right: 50px;
+    object-fit: cover;
+    
+    margin-right: 80px;
+    transition: transform 0.3s ease, filter 0.3s ease; /* Ajoute une transition douce */
+   
+}
+.profile-pic:hover{
+     /*box-shadow: 0px 0px 20px 10px rgba(255, 165, 0, 0.7);  Ombre orange uniforme */
+     box-shadow: 0px 0px 30px 15px rgba(255, 102, 0, 0.7);
+     transition: box-shadow 0.3s ease;
+     
+    
+}
+.typed-cursor {
+    font-weight: bold;
+    color: orange; /* Couleur du curseur */
+    font-size: 1.5em; /* Taille du curseur */
+    animation: blink 0.7s infinite; /* Animation clignotante */
+    display: inline-block; /* Assure que le curseur se comporte comme un élément en ligne */
+    vertical-align: middle; /* Aligne le curseur au milieu de la ligne */
+    margin-left: 5px; /* Ajuste l'espacement si nécessaire */
+}
+
+
+.profile-info {
+    max-width: 600px;
+}
+
+.profile-info h2 {
+    font-size: 48px;
+    margin-bottom: 10px;
+    font-family: 'Mokoto', sans-serif;
+}
+
+.profile-info p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+/* Social links */
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-links a img {
+   
+    transition: transform 0.3s;
+    filter: brightness(0) invert(1); /* White icons */
+    height: 30px;
+    margin-inline-start: -2px;
+    margin-top: 15px;
+}
+
+
+   
+
+.social-links a img:hover {
+    transform: scale(1.2);
+    filter: brightness(0) saturate(100%) invert(48%) sepia(100%) saturate(500%) hue-rotate(-15deg) brightness(1); /* Ajustement pour obtenir un orange proche de rgba(255, 102, 0, 0.7) */
+}
+
+
+/* Import of the custom font */
+@font-face {
+    font-family: 'Mokoto';
+    src: url('Mokoto Demo.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+.download-section {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px; /* Ajuste l'espacement selon tes besoins */
+}
+
+.download-button {
+    display: flex;
+    align-items: center;
+    margin-right: 150px;
+    background-color: black; /* Couleur de fond noir */
+    color: white; /* Texte en blanc */
+    text-decoration: none;
+    padding: 10px 20px; /* Ajoute un peu d'espace autour du texte */
+    border-radius: 30px; /* Coins arrondis */
+    border: 1px solid white; /* Bordure blanche */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Ajoute une transition pour le hover */
+    margin-top: -20px;
+    transition: transform 0.3s;
+}
+
+.download-button:hover {
+    background-color:black; /* Couleur de fond orange au survol */
+    color:rgba(255, 102, 0, 0.7); /* Change la couleur du texte au survol */
+    border: 1px solid rgba(255, 102, 0, 0.7);
+    transform: scale(1.2);
+    transition: transform 0.3s;
+
+}
+
+.download-button img {
+    width: 15px; /* Largeur de l'icône */
+    height: 15px; /* Hauteur de l'icône */
+    margin-right: 8px; /* Espace entre l'icône et le texte */
+    filter: brightness(0) invert(1);
+}
+/* Styles pour la section "About Me" */
+.about-section {
+    position: relative;
+    padding: 50px;
+    background-color:white; /* Couleur de fond */
+    color: rgb(0, 0, 0);
+    height: 100vh; /* Prend toute la hauteur de la fenêtre */
+    display: flex;
+    justify-content: space-around; /* Espace entre le texte et les infos */
+    align-items: center;
+    overflow: hidden; /* Pour empêcher les éléments décoratifs de sortir */
+}
+.about-section h2{
+    font-family: 'Mokoto', sans-serif;
+}
+
+/* Texte about me */
+.about-content {
+    text-align: center;
+    max-width: 600px;
+    color: rgb(0, 0, 0); /* Texte en blanc */
+    line-height: 1.8;
+}
+
+/* Style pour les informations personnelles */
+.info {
+    text-align: left; /* Aligne les infos à gauche */
+    font-size: 18px;
+    color: rgb(0, 0, 0); /* Texte en blanc */
+}
+
+/* Ajout de bulles décoratives */
+.bubble {
+    position: absolute;
+    border-radius: 50%;
+    background-color: rgba(255, 102, 0, 0.7); /* Bulles oranges */
+    opacity: 0.5;
+    animation: float 6s ease-in-out infinite;
+}
+
+.bubble:nth-child(1) {
+    width: 100px;
+    height: 100px;
+    top: 20%;
+    left: 10%;
+}
+
+.bubble:nth-child(2) {
+    width: 150px;
+    height: 150px;
+    top: 60%;
+    right: 20%;
+}
+
+.bubble:nth-child(3) {
+    width: 80px;
+    height: 80px;
+    top: 50%;
+    left: 60%;
+}
+
+.bubble:nth-child(4) {
+    width: 120px;
+    height: 120px;
+    bottom: 10%;
+    right: 30%;
+}
+
+/* Animation pour les bulles */
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+html {
+    stroke-dashoffset: smooth; /* Transition fluide lors du défilement */
+}.info {
+    margin-top: 20px; /* Espace en haut des informations */
+    padding-left: 20px; /* Espace à gauche pour un léger décalage */
+    line-height: 2; /* Interligne pour espacer les lignes */
+}
+
+.info p {
+    margin-bottom: 15px; /* Espace entre chaque élément d'information */
+    font-size: 18px; /* Taille du texte */
+}
+/* Smooth scroll for navigation */
+html {
+    scroll-behavior: smooth;
+}
+
+
+
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+nav ul li a:hover {
+    color: #FF6600;
+}
+.education-section {
+    background-color: black; /* Fond noir */
+    padding: 30px; /* Réduction du padding */
+    color: #fff; /* Couleur du texte */
+    text-align: center;
+    
+}
+
+.education-section h2 {
+    font-size: 30px; /* Taille réduite */
+    margin-bottom: 20px; /* Espacement réduit */
+    font-family: 'Mokoto', sans-serif;
+    margin-top: 100px;
+}
+
+.education-timeline {
+    position: relative;
+    max-width: 800px; /* Réduction de la largeur maximale */
+    margin: 0 auto;
+    padding: 10px 0;
+}
+
+.education-item {
+    padding: 10px; /* Réduction du padding */
+    width: 40%; /* Réduction de la largeur */
+    position: relative;
+    margin: 10px 0; /* Réduction de la marge */
+    border-radius: 8px; /* Arrondi des coins */
+    background-color: rgba(0, 0, 0, 0.8); /* Fond légèrement transparent */
+    border: 1px solid rgba(255, 102, 0, 0.7); /* Bordure orange */
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.education-item.left {
+    float: left;
+    text-align: left;
+    clear: both; /* Assure que les items à gauche ne se chevauchent pas */
+}
+
+.education-item.right {
+    float: right;
+    text-align: right;
+    clear: both; /* Assure que les items à droite ne se chevauchent pas */
+}
+
+.education-item h3 {
+    font-size: 20px; /* Taille réduite */
+    margin-bottom: 5px;
+}
+
+.education-item p {
+    font-size: 16px; /* Taille réduite */
+    line-height: 1.6; /* Espacement des lignes */
+}
+
+/* Style de l'échelle centrale */
+.education-timeline:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 4px;
+    background-color: rgba(255, 102, 0, 0.7); /* Couleur orange */
+    transform: translateX(-50%);
+}
+
+/* Style des bulles sur l'échelle */
+.education-item:before {
+    content: '';
+    position: absolute;
+    width: 10px; /* Réduction de la taille */
+    height: 10px; /* Réduction de la taille */
+    background-color: rgba(255, 102, 0, 0.7); /* Couleur orange */
+    border-radius: 50%;
+    top: 10px;
+}
+
+.education-item.left:before {
+    right: -8px;
+}
+
+.education-item.right:before {
+    left: -8px;
+}
+
+/* Ajout de l'effet hover */
+.education-item:hover {
+    background-color: rgba(255, 102, 0, 0.2); /* Fond orange léger au survol */
+    transform: scale(1.02); /* Légère agrandissement au survol */
+}
+
+/* Pour s'assurer que le flux des éléments est correct */
+.education-item::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+.services-section {
+    background-color: black; /* Fond noir */
+    color: white; /* Texte blanc */
+    padding: 40px 0; /* Réduction du padding */
+    text-align: center; /* Centrer le texte */
+    margin-top: 900px;
+}
+
+.services-section h2 {
+    font-family: 'Mokoto', sans-serif; /* Police Mokoto pour le titre */
+    font-size: 32px; /* Taille ajustée du titre */
+    color: white; /* Couleur du titre */
+    margin-bottom: 100px; /* Espacement réduit */
+    margin-top: 150px;
+}
+
+/* Conteneur principal pour les services */
+.services-container {
+    display: flex;
+    justify-content: center; /* Centrer les cartes */
+    gap: 30px; /* Espace entre les cartes */
+    flex-wrap: wrap; /* Permet aux cartes de s'ajuster en fonction de la taille de l'écran */
+}
+
+/* Cartes individuelles pour chaque service */
+.service-card {
+    background-color: black; /* Fond noir */
+    border: 2px solid rgba(255, 102, 0, 0.8); /* Bordure orange */
+    border-radius: 10px; /* Coins arrondis */
+    padding: 20px;
+    width: 220px; /* Taille fixe pour les cartes */
+    margin: 15px; /* Espacement réduit entre les cartes */
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease; /* Transition fluide */
+}
+
+/* Icône ou emoji en haut de la carte */
+.service-icon {
+    font-size: 45px; /* Taille de l'icône ajustée */
+    margin-bottom: 10px; /* Espacement sous l'icône */
+}
+
+/* Titre des services */
+.service-card h3 {
+    font-size: 20px; /* Taille ajustée du titre des services */
+    margin-bottom: 8px; /* Espacement réduit sous le titre */
+}
+
+/* Description des services */
+.service-card p {
+    font-size: 14px; /* Taille ajustée du texte de description */
+    line-height: 1.4; /* Hauteur de ligne légèrement réduite */
+}
+
+/* Effet hover sur les cartes */
+.service-card:hover {
+    transform: scale(1.08); /* Agrandir légèrement la carte au survol */
+    background-color: rgba(255, 102, 0, 0.9); /* Fond orange plus vif au survol */
+    color: white; /* Couleur du texte en blanc au survol */
+}
+
+/* Responsiveness pour les petits écrans */
+@media (max-width: 768px) {
+    .services-container {
+        flex-direction: column; /* Empiler les cartes en colonne sur petit écran */
+        align-items: center; /* Centrer les cartes */
+    }
+
+    .service-card {
+        width: 90%; /* Prendre plus de largeur sur petit écran */
+    }
+}
+.projects-section {
+    background-color: #f0f0f0; /* Fond gris clair */
+    color: black; /* Texte noir */
+    padding: 60px 0; /* Espacement de la section */
+    text-align: center; /* Centrer le texte */
+  
+}
+
+.projects-section h2 {
+    font-family: 'Mokoto', sans-serif; /* Police Mokoto */
+    font-size: 32px; /* Taille du titre */
+    color: black; /* Couleur du titre */
+    margin-bottom: 40px; /* Espacement sous le titre */
+    margin-top: 225px;
+}
+
+/* Conteneur principal pour les projets */
+.projects-container {
+    display: flex;
+    justify-content: space-around; /* Espace entre les cartes */
+    flex-wrap: wrap; /* Ajuste les cartes en fonction de l'écran */
+    gap: 20px; /* Espace entre les cartes */
+    padding: 20px;
+}
+
+/* Style des cartes projet */
+.project-card {
+    background-color: white; /* Fond blanc */
+   
+    border-radius: 10px; /* Coins arrondis */
+    width: 300px; /* Largeur fixe des cartes */
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transition fluide */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre légère */
+}
+
+.project-card:hover {
+    transform: scale(1.05); /* Agrandir légèrement la carte au survol */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Ombre plus prononcée */
+}
+
+/* Conteneur d'image */
+.image-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.image-container img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    transition: filter 0.3s ease; /* Transition fluide pour le flou */
+}
+
+.project-card:hover .image-container img {
+    filter: blur(5px); /* Applique un flou à l'image au survol */
+}
+
+/* Contenu texte dans la carte */
+.project-card .content {
+    padding: 15px;
+    opacity: 0;
+    transition: opacity 0.3s ease; /* Transition pour faire apparaître le texte */
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.7); /* Fond noir semi-transparent */
+}
+
+.project-card:hover .content {
+    opacity: 1; /* Faire apparaître le texte au survol */
+}
+
+.project-card h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: white; /* Texte blanc */
+}
+
+.project-card p {
+    font-size: 14px;
+    line-height: 1.5;
+    color: white; /* Texte blanc */
+}
+
+/* Bouton pour voir plus de détails */
+.project-card a {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: rgba(255, 102, 0, 0.8); /* Bouton orange */
+    color: white; /* Texte blanc */
+    text-decoration: none; /* Sans soulignement */
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.project-card a:hover {
+    background-color: rgba(255, 102, 0, 1); /* Bouton orange vif au survol */
+}
+
+/* Responsiveness pour les petits écrans */
+@media (max-width: 768px) {
+    .projects-container {
+        flex-direction: column; /* Empiler les cartes en colonne */
+        align-items: center; /* Centrer les cartes */
+    }
+
+    .project-card {
+        width: 90%; /* Prendre plus de largeur sur petit écran */
+    }
+}
+.contact-section {
+    background-color: #000; /* Fond noir */
+    color: white; /* Texte blanc */
+    padding: 60px 0; /* Espacement de la section */
+    text-align: center; /* Centrer le texte */
+}
+
+.contact-section h2 {
+    font-family: 'Mokoto', sans-serif; /* Police Mokoto */
+    font-size: 32px; /* Taille du titre */
+    color: white; /* Couleur du titre */
+    margin-bottom: 40px; /* Espacement sous le titre */
+    margin-top: 100px;
+}
+
+/* Conteneur principal du formulaire */
+.contact-form-container {
+    max-width: 600px; /* Limite la largeur du formulaire */
+    margin: 0 auto; /* Centré */
+    padding: 20px;
+    background-color: black; /* Fond orange */
+  
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre légère */
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column; /* Empile les éléments en colonne */
+}
+
+.contact-form input, 
+.contact-form textarea {
+    width: 100%; /* Prend toute la largeur disponible */
+    padding: 12px; /* Espacement interne */
+    margin: 10px 0; /* Espacement entre les champs */
+    border: 2px solid transparent; /* Bordure par défaut transparente */
+    border-radius: 10px; /* Coins arrondis */
+    transition: border-color 0.3s ease; /* Transition fluide pour la bordure */
+    border: 1px solid white;
+}
+
+.contact-form input:focus, 
+.contact-form textarea:focus {
+    border-color: rgba(255, 102, 0, 0.7); /* Change la couleur de la bordure au focus */
+    outline: none; /* Retire le contour par défaut */
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"] {
+    font-size: 16px; /* Taille du texte */
+    background-color: rgba(0, 0, 0, 0.9); /* Fond noir */
+    color: white; /* Texte blanc */
+}
+
+.contact-form textarea {
+    font-size: 16px;
+    height: 150px; /* Hauteur du champ message */
+    background-color: rgba(0, 0, 0, 0.9); /* Fond noir */
+    color: white; /* Texte blanc */
+    resize: none; /* Désactive le redimensionnement */
+}
+
+/* Style du bouton envoyer */
+.contact-form button {
+    background-color: black; /* Fond noir */
+    color: white; /* Texte blanc */
+    padding: 12px 20px; /* Espacement du bouton */
+    border: 1px solid rgba(255, 102, 0, 0.8); /* Bordure orange */
+    border-radius: 10px; /* Coins arrondis */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.contact-form button:hover {
+    background-color: rgba(255, 102, 0, 0.8); /* Fond orange au survol */
+    transform: scale(1.05); /* Agrandit légèrement au survol */
+}
+
+/* Responsiveness pour les petits écrans */
+@media (max-width: 768px) {
+    .contact-form-container {
+        width: 90%; /* Largeur ajustée pour petit écran */
+    }
+}
+footer {
+    background-color: white; /* Couleur de fond */
+    padding: 20px;
+    text-align: center;
+    color: black;
+    position: relative;
+    font-family: Arial, sans-serif;
+}
+
+.social-icons a {
+    margin: 0 10px;
+    color: black;
+    font-size: 20px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.social-icons a:hover {
+    color: #ff6600; /* Changement de couleur au survol */
+}
+
+.footer-links {
+    margin: 20px 0;
+}
+
+.footer-links a {
+    color: black;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    color: #ff6600; /* Changement de couleur au survol */
+}
+
+.copyright {
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+#year {
+    font-weight: bold;
+}
